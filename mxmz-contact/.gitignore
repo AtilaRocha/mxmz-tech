@@ -1,29 +1,20 @@
-# Laravel
+/.phpunit.cache
 /node_modules
-/vendor
+/public/build
 /public/hot
 /public/storage
 /storage/*.key
-/storage/framework/cache/data
-/storage/framework/sessions
-/storage/framework/testing
-/storage/framework/views
-/storage/logs
-/.idea
-/.vscode
+/vendor
 .env
 .env.backup
-.env.local
-.env.development
 .env.production
-.env.testing
+.phpactor.json
 .phpunit.result.cache
-.phpunit.cache
-
-# Docker
-docker-compose.override.yml
-.sail/storage
-
-# Sistema Operacional e IDE
-.DS_Store
-Thumbs.db
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+/.fleet
+/.idea
+/.vscode
