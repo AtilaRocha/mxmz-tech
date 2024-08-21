@@ -23,11 +23,11 @@ class ContactFormController extends Controller
             'file' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
         ]);
 
-        $filePath = null;
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $filePath = $file->store('files', 'public');
-        }
+    $filePath = null;
+    if ($request->hasFile('file')) {
+        $file = $request->file('file');
+        $filePath = $file->store('files', 'public');
+    }
 
         ContactForm::create([
             'name' => $request->input('name'),
