@@ -1,0 +1,193 @@
+/* Estilos existentes */
+
+html {
+  background: rgba(24, 24, 24, 0.1);
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+body {
+  background: #f5f5f5;
+  width: 90%;
+  max-width: 800px;
+  margin: 50px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+p {
+  text-align: center;
+  color: #666;
+}
+
+label {
+  display: block;
+  margin: 1em 0 0.2em;
+  font-weight: bold;
+}
+
+input, select, textarea {
+  display: block;
+  width: 100%;
+  padding: 0.8em;
+  font-size: 16px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1em;
+}
+
+textarea {
+  min-height: 150px;
+  resize: none;
+}
+
+select {
+  color: #333;
+}
+
+option {
+  color: #333;
+  background: #f9f9f9;
+}
+
+input[type=checkbox] {
+  display: inline;
+  width: auto;
+}
+
+input[type=submit] {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.8em 1.5em;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 1em auto 0;
+}
+
+input[type=submit]:hover {
+  background: #0056b3;
+}
+
+input:focus,
+input:hover,
+select:focus,
+select:hover,
+textarea:focus,
+textarea:hover {
+  border-color: #007bff;
+  background: #f1faff;
+  outline: none;
+}
+
+.alert {
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+@media screen and (min-width: 600px) {
+  form::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  .column {
+    width: 48%;
+    padding: 1em;
+    float: left;
+    margin-right: 2%;
+  }
+
+  .column:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    padding: 0;
+    float: none;
+    margin-right: 0;
+  }
+}
+
+.file-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.file-input-label {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #FE846F;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  border: 1px solid #FE846F;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.file-input-label:hover {
+  background: #e5756f;
+}
+
+.file-input-field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-name {
+  margin-top: 0.5em;
+  padding: 0.8em;
+  background: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+
+
+.form-actions {
+  text-align: center;
+  border-radius: 5px;
+}
