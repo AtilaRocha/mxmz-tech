@@ -15,6 +15,9 @@ class ContactFormService
      */
     public function validateContactForm(Request $request): array
     {
+    $request->merge([
+        'phone' => preg_replace('/\D/', '', $request->input('phone'))
+    ]);
         return $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',

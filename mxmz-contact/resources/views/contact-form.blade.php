@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
     <link rel="stylesheet" href="/css/app.css">
+    <script src="https://cdn.jsdelivr.net/npm/inputmask/dist/inputmask.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -46,34 +47,30 @@
                     <label for="description">Descrição:</label>
                     <textarea rows="4" name="description" id="description" placeholder="Digite a descrição">{{ old('description') }}</textarea>
                     
-
-
-
                     <div class="file-input">
-    <label for="file" class="file-input-label">
-        Anexar arquivo
-        <input type="file" name="file" id="file" class="file-input-field" onchange="updateFileName()">
-    </label>
-    <div id="file-name" class="file-name">Nenhum arquivo selecionado</div>
-</div>
-
-
-
-
-
-                </div>
-
+                        <label for="file" class="file-input-label">
+                            Anexar arquivo
+                            <input type="file" name="file" id="file" class="file-input-field" onchange="updateFileName()">
+                        </label>
+                        <div id="file-name" class="file-name">Nenhum arquivo selecionado</div>
+                    </div>
                 </div>
                 
                 <div class="form-actions">
                     <input type="submit" value="Enviar">
-    
                 </div>
             </form>
         </div>
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Aplicando a máscara ao campo de telefone
+            const phoneInput = document.getElementById('phone');
+            const phoneMask = new Inputmask("(99) 99999-9999"); // Máscara para telefone brasileiro
+            phoneMask.mask(phoneInput);
+        });
+
         function updateFileName() {
             const fileInput = document.getElementById('file');
             const fileName = document.getElementById('file-name');
@@ -83,6 +80,15 @@
                 fileName.textContent = 'Nenhum arquivo selecionado';
             }
         }
+
+        function sanitizePhoneNumber() {
+            const phoneInput = document.getElementById('phone');
+            // Remover caracteres não numéricos do valor da máscara
+            phoneInput.value = phoneInput.value.replace(/\D/g, '');
+        }
+
+        // Adiciona a função de sanitização ao evento de envio do formulário
+        document.getElementById('contact-form').addEventListener('submit', sanitizePhoneNumber);
     </script>
 </body>
 </html>
