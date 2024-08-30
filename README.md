@@ -152,6 +152,35 @@ Aplique as migrações no banco de dados com o comando:
 ```bash
 ./vendor/bin/sail artisan migrate
 ```
+### Realizar testes
+
+Para criar um seeder, use:
+```bash
+./vendor/bin/sail artisan make:seeder NomeDoSeeder
+```
+Para rodar os seeders e popular o banco de dados, use:
+```bash
+./vendor/bin/sail artisan db:seed
+```
+Para criar uma factory, use:
+```bash
+./vendor/bin/sail artisan make:factory NomeDaFactory
+```
+
+### Gerar e Popular Dados com Factories
+
+Para gerar e popular dados usando factories, você pode utilizar os seeders. Por exemplo, se você configurar sua factory e seeders para gerar dados, você pode rodar:
+```bash
+./vendor/bin/sail artisan db:seed
+```
+Ou para um seeder específico que usa a factory:
+```bash
+./vendor/bin/sail artisan db:seed --class=NomeDoSeeder
+```
+Para rodar os testes automatizados, use:
+```bash
+./vendor/bin/sail test
+```
 
 ### Acessar a aplicação
 
