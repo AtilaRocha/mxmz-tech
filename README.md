@@ -175,7 +175,7 @@ Para gerar e popular dados usando factories, você pode utilizar os seeders. Por
 ```
 Ou para um seeder específico que usa a factory:
 ```bash
-./vendor/bin/sail artisan db:seed --class=NomeDoSeeder
+./vendor/bin/sail artisan db:seed --class=UsersTableSeeder
 ```
 Para rodar os testes automatizados, use:
 ```bash
