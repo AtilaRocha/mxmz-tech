@@ -10,6 +10,7 @@ Este projeto é uma aplicação web para gerenciamento de formulários "Trabalhe
    - [Regras de Validação](#regras-de-validação)
    - [Segurança](#segurança)
 - [Instruções para Configuração e Execução](#instruções-para-configuração-e-execução)
+  - [Instalação do Projeto](#instalação)
   - [Configuração do `.env`](#configuração-do-env)
   - [Construir e subir os containers](#construir-e-subir-os-containers)
   - [Executar as migrações](#executar-as-migrações)
@@ -44,7 +45,18 @@ A arquitetura do sistema para o projeto "Trabalhe Conosco" é projetada para ser
 
 ### Tecnologias Utilizadas
 
-- **Backend**: PHP com **Laravel** - Framework robusto para o desenvolvimento de aplicações web, oferecendo uma estrutura MVC e integração fácil com banco de dados.
+- **Backend**: PHP com **Laravel (versão 11.21.0)** - Framework robusto para o desenvolvimento de aplicações web, oferecendo uma estrutura MVC e integração fácil com banco de dados.
+- Versão do PHP: 8.3.10
+- Dependências PHP:
+   - *pdo_mysql* - Para interação com o banco de dados MySQL.
+   - *mbstring* - Para operações de manipulação de strings multibyte.
+   - *openssl* - Para funcionalidades de segurança, como criptografia.
+   - *curl* - Para operações de rede, como requisições HTTP.
+   - *xml* - Para manipulação de dados em formato XML.
+   - *tokenizer* - Para análise de códigos PHP.
+   - *json* - Para manipulação de dados JSON.
+   - *fileinfo* - Para manipulação de informações de arquivos.
+   - *Laravel Sail* - versão 1.31.1 - Docker files para rodar uma aplicação Laravel básica.
 - **Frontend**: **HTML**, **CSS**, **JavaScript** - Para criar uma interface de usuário moderna e responsiva.
 - **Banco de Dados**: **MySQL** - Utilizado para armazenar os dados dos formulários, configurado em um container Docker para garantir um ambiente isolado e consistente.
 - **Containerização**: **Docker** - Usado para criar e gerenciar dois containers principais: um para o banco de dados MySQL e outro para a aplicação Laravel.
@@ -85,12 +97,42 @@ Essa arquitetura garante uma aplicação escalável e fácil de manter, aproveit
 
 ## Instruções para Configuração e Execução
 
+
+### Instalação do Projeto
+
+Clone do Repositório:
+```bash
+git clone https://github.com/AtilaRocha/mxmz-tech.git
+cd mxmz-tech
+```
+Instale as Dependências com Composer: Certifique-se de que você tem o Composer instalado. Execute o comando:
+```bash
+composer install
+```
+Execute os seguintes comandos para instalar as extensões PHP necessárias:
+```bash
+sudo apt-get update
+sudo apt-get install php8.3-mysql php8.3-mbstring php8.3-openssl php8.3-curl php8.3-xml php8.3-tokenizer php8.3-json php8.3-fileinfo
+```
+
 ### Configuração do `.env`
 
 Copie o arquivo `.env.example` para criar o seu arquivo `.env`:
 
 ```bash
 cp .env.example .env
+```
+Gere a Chave de Aplicação:
+```bash
+php artisan key:generate
+```
+Instale e Configure o Laravel Sail: Se o Laravel Sail não estiver instalado, adicione-o como uma dependência de desenvolvimento:
+```bash
+composer require laravel/sail --dev
+```
+Depois, publique os arquivos de configuração do Sail:
+```bash
+php artisan sail:install
 ```
 
 Em seguida, edite o arquivo `.env` para configurar as variáveis de ambiente, especialmente as configurações de banco de dados e outras configurações necessárias.
